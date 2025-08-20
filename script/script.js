@@ -21,14 +21,15 @@ async function getImage(url, count, setId, expansionName) {
     const fetchUrl = `${url}${count}${CONSTANTS.PNG}`;
     try {
         const imageResponse = await fetch(fetchUrl);
-        const destination = path.resolve(`./${downloadPath}/${expansionName}`, `${setId}${count}${CONSTANTS.PNG}`);
+        const dlPath = `./${downloadPath}/${expansionName}`
+        const destination = path.resolve(dlPath, `${setId}${count}${CONSTANTS.PNG}`);
         const contentType = imageResponse.headers.get("content-type") || "";
         if (!contentType.startsWith("image/")) {
             throw new Error(`End image scrape: No more images to scrape`);
         }
         const fileStream = fs.createWriteStream(destination, { flags: 'wx' });
         await finished(Readable.fromWeb(imageResponse.body).pipe(fileStream));
-        console.log(`Downloading image: ${setId}${count}${CONSTANTS.PNG}`)
+        console.log(`Downloading image: ${setId}${count}${CONSTANTS.PNG} to ${dlPath}`)
     } catch (error) {
         throw error;
     }
@@ -84,7 +85,9 @@ async function getAllImages() {
             console.error(`Download path: ${downloadPath} already exists, please indicate a new download path with the --path flag`);
             return;
         }
-        await mkdir(`${downloadPath}/${expansionName}`);
+        console.log('making download path')
+        const path = `${downloadPath}/${expansionName}`
+        await mkdir(path, { recursive: true });
     }
 
     let hasNext = true;
