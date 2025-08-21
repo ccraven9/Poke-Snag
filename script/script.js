@@ -95,7 +95,7 @@ async function getAllImages() {
 
     while (hasNext) {
         try {
-            await getImage(expansion.url, ++cardCounter, expansion.setId, expansion.name);
+            await getImage(expansion.url, ++cardCounter, expansion.setId, expansionName);
         } catch (e) {
             hasNext = false;
             console.error(e.message);
@@ -112,10 +112,19 @@ async function getAllImages() {
 function getImageUrl(expansion) {
     const expansionNames = JSON.parse(JSON.stringify(expansionNamesJson));
     if (expansionNames[expansion]) {
+        
         let expansionObj = {};
-        expansionObj.url = `${CONSTANTS.TCG_URL}/${expansion}/${CONSTANTS.EN_US}/${expansionNames[expansion]}`;
+
+        if (['black-bolt', 'white-flare'].includes(expansion)) {
+            expansionObj.name = 'black-white';
+            console.log('setting expansion name to black-white')
+        } else {
+             expansionObj.name = expansion;
+        }
+
+        expansionObj.url = `${CONSTANTS.TCG_URL}/${expansionObj.name}/${CONSTANTS.EN_US}/${expansionNames[expansion]}`;
         expansionObj.setId = expansionNames[expansion]
-        expansionObj.name = expansion
+       
         return expansionObj;
     }
 
