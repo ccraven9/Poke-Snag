@@ -25,7 +25,7 @@ You can also set a specific download path with the `--path` flag, and set a down
 | 151                 | 151                 | 
 | Paradox Rift        | paradox-rift        | 
 | Paldean Fates       | paldean-fates       | 
-| Temporal Fates      | temporal-forces     | 
+| Temporal Forces     | temporal-forces     | 
 | Twilight Masquerade | twilight-masquerade | 
 | Shrouded Fable      | shrouded-fable      |
 | Stellar Crown       | stellar-crown       |
