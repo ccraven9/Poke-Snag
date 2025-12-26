@@ -35,6 +35,8 @@ You can also set a specific download path with the `--path` flag, and set a down
 | Destined Rivals     | destined-rivals     |
 | Black Bolt          | black-bolt          |
 | White Flare         | white-flare         |
+| Mega Evolution      | mega-evolution      |
+| Phantasmal Flames   | phantasmal-flames   | 
 
 
 
