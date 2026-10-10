@@ -37,9 +37,10 @@ You can also set a specific download path with the `--path` flag, and set a down
 | White Flare         | white-flare         |
 | Mega Evolution      | mega-evolution      |
 | Phantasmal Flames   | phantasmal-flames   | 
-
-
-
+| Ascended Heroes     | ascended-heroes     |
+| Perfect Order       | perfect-order       |
+| Pitch Black         | pitch-black         |
+| 30th Celebration    | 30th-celebration    |
 
 
 
